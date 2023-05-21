@@ -39,15 +39,15 @@ int main()
     for(int i = 0; i< arr.size(); ++i)
         std::cout << arr[i] << " ";
    
-    // //-------------------------------------------
-    // std::cout << "\n\nKonstruktor kopiujacy i inkrementacja" << std::endl;
-    // const MyArray arr_cp = arr;
-    // std::cout << "arr_cp = " << arr_cp << std::endl;
-    // std::cout << arr++ << std::endl;
-    // std::cout << arr << std::endl;
-    // arr[4] = 55;
-    // std::cout <<  "arr[4] = " << arr[4] << ", " << 
-    //              "arr_cp[4] = " << arr_cp[10] << std::endl; //to samo co arr_cp[4], indeksujemy cyklicznie
+    //-------------------------------------------
+    std::cout << "\n\nKonstruktor kopiujacy i inkrementacja" << std::endl;
+    const MyArray arr_cp = arr;
+    std::cout << "arr_cp = " << arr_cp << std::endl;
+    std::cout << arr++ << std::endl;
+    std::cout << arr << std::endl;
+    arr[4] = 55;
+    std::cout <<  "arr[4] = " << arr[4] << ", " << 
+                 "arr_cp[4] = " << arr_cp[10] << std::endl; //to samo co arr_cp[4], indeksujemy cyklicznie
         
     // //-------------------------------------------
     // std::cout << "\nKonstruktor przenoszacy" << std::endl;

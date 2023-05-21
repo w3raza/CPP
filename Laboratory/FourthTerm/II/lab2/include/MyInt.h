@@ -21,6 +21,17 @@ public:
         ::operator delete[](ptr);
     }
 
+    MyInt operator++(int){
+        MyInt tmp = *this;
+        tmp._value++;
+
+        return tmp;
+    }
+
+    void operator=(int value){
+        _value = value;
+    }
+
 private:
     int _value = 7;
 };

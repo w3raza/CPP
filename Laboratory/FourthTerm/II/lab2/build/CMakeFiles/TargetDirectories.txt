@@ -1,0 +1,5 @@
+/Users/wiktoriazaczyk/University/CPP/Laboratory/FourthTerm/II/lab2/build/CMakeFiles/main.dir
+/Users/wiktoriazaczyk/University/CPP/Laboratory/FourthTerm/II/lab2/build/CMakeFiles/run.dir
+/Users/wiktoriazaczyk/University/CPP/Laboratory/FourthTerm/II/lab2/build/CMakeFiles/check.dir
+/Users/wiktoriazaczyk/University/CPP/Laboratory/FourthTerm/II/lab2/build/CMakeFiles/edit_cache.dir
+/Users/wiktoriazaczyk/University/CPP/Laboratory/FourthTerm/II/lab2/build/CMakeFiles/rebuild_cache.dir

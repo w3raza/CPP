@@ -1,26 +1,52 @@
 #pragma once
+#include "MyInt.h"
 #include <iostream>
 
 class MyArray{
 public:
-    MyArray(size_t size): _size(size), _ptr(new int[size]){initialize();}
+    MyArray(size_t size): _size(size), _ptr(new MyInt[size]){}
+    MyArray(const MyArray& arr): _size(arr._size), _ptr(arr._ptr){}
     ~MyArray(){}
 
-    void initialize(){
+    // void initialize(){
+    //     for(int i = 0; i < _size; i++){
+    //         _ptr[i] = 7;
+    //     }
+    // }
+
+    std::ostream& print(std::ostream& os) const{
+         os << "[";
         for(int i = 0; i < _size; i++){
-            _ptr[i] = 7;
+            os << _ptr[i];
+            if(i != _size-1){
+                os << ", ";
+            }
         }
+        os << "]";
+        return os;
     }
 
     size_t size(){return _size;}
 
-    int& operator[](int i){return _ptr[i];}
+    MyInt& operator[](int i)const{
+        return _ptr[i];
+    }
+
+    MyArray operator++(int){
+        MyArray tmp = *this;
+
+        for(int i = 0; i < _size; i++){
+            _ptr[i]++;
+        }
+
+        return tmp;
+    }
 
 private:
     size_t _size;
-    int* _ptr;
+    MyInt* _ptr;
 };
 
 std::ostream& operator<<(std::ostream& os, const MyArray& arr){
-    return os << arr.print();
+    return arr.print(os);
 }

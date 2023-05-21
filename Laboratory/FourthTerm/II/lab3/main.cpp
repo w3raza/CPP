@@ -19,11 +19,8 @@ UWAGA!
 * Nie należy definiować każdej klasy w osobnym pliku, raczej je pogrupować: klasa ogólna w main.h, klasy związane z zelazkiem w zelazko.h, klasy zwiazane z ubraniami w ubrania.h
 Konstruktory proszę zdefiniować w klasach w listach inicjalizacyjnych.
 * Proszę jak najoptymalniej zdefiniować strukturę klas, wyłaniając części wspólne -  to będzie znacząco wpływać na ocenę.
-
-W zadaniu zaleca się korzystanie z elementów bilbioteki standardowej (std::string)
 */
 
-#include "main.h"
 #include "zelazko.h"
 #include "ubranie.h"
 
