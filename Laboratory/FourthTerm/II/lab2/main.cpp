@@ -49,24 +49,24 @@ int main()
     std::cout <<  "arr[4] = " << arr[4] << ", " << 
                  "arr_cp[4] = " << arr_cp[10] << std::endl; //to samo co arr_cp[4], indeksujemy cyklicznie
         
-    // //-------------------------------------------
-    // std::cout << "\nKonstruktor przenoszacy" << std::endl;
-    // print("arr",arr);
-    // MyArray arr_mv = std::move(arr);
-    // print("arr",arr);
-    // print("arr_mv",arr_mv);
+    //-------------------------------------------
+    std::cout << "\nKonstruktor przenoszacy" << std::endl;
+    print("arr",arr);
+    MyArray arr_mv = std::move(arr);
+    print("arr",arr);
+    print("arr_mv",arr_mv);
     
-    // //-------------------------------------------
-    // std::cout << "\nOperatory przypisania" << std::endl;
-    // // MyArray arr2(4);
-    // // print("arr2", arr2);
-    // arr = arr = arr_mv;
-    // print("arr", arr);
-    // MyArray arr2_mv;
-    // arr2_mv = std::move(arr_mv);
-    // print("arr2_mv",arr2_mv);
-    // //-------------------------------------------
-    // std::cout << "\nDestruktory" << std::endl;
+    //-------------------------------------------
+    std::cout << "\nOperatory przypisania" << std::endl;
+    // MyArray arr2(4);
+    // print("arr2", arr2);
+    arr = arr = arr_mv;
+    print("arr", arr);
+    MyArray arr2_mv;
+    arr2_mv = std::move(arr_mv);
+    print("arr2_mv",arr2_mv);
+    //-------------------------------------------
+    std::cout << "\nDestruktory" << std::endl;
 }
 
 /* Oczekiwany wynik ./main

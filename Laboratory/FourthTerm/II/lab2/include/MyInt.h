@@ -12,20 +12,24 @@ public:
     }
     
     void* operator new[](std::size_t size){
-        std::cout << "--- NEW[] --- rozmiar = " << size << "  sizeof = " << sizeof(MyInt) << std::endl;
+        std::cout << "--- NEW[] --- rozmiar = " << size/sizeof(std::size_t) << "  sizeof = " << sizeof(MyInt) * size/sizeof(std::size_t) << std::endl;
         return ::operator new[](size);
     }
 
     void operator delete[](void* ptr, std::size_t size){
-        std::cout << "--- DELETE[] --- rozmiar = " << size << std::endl;
+        std::cout << "--- DELETE[] --- rozmiar = " << size/sizeof(std::size_t) << std::endl;
         ::operator delete[](ptr);
     }
 
-    MyInt operator++(int){
-        MyInt tmp = *this;
-        tmp._value++;
+    MyInt& operator++() {
+    ++_value;
+    return *this;
+    }
 
-        return tmp;
+    MyInt operator++(int) {
+        MyInt temp(*this);
+        ++(*this);
+        return temp;
     }
 
     void operator=(int value){
