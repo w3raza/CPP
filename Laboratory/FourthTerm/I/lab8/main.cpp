@@ -56,14 +56,14 @@ int main()
   // zbior posortowany wedlug wspolrzednych X
   std::set<Wektor2D> zbiorWektorw (elementy, elementy + sizeof(elementy)/sizeof(Wektor2D));
 
-  // DzialaniaNaZbiorach dzialania (zbiorWektorw);
-  // std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500:\n";
-  // dzialania.WypiszXWiekszeOd(500);
-  // dzialania.ZamienX(900, 750);	// zamien pierwszy wektor o wspolrzednej X rownej 900
-  //                               // (oldX, newX)
+  DzialaniaNaZbiorach dzialania (zbiorWektorw);
+  std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500:\n";
+  dzialania.WypiszXWiekszeOd(500);
+  dzialania.ZamienX(900, 750);	// zamien pierwszy wektor o wspolrzednej X rownej 900
+                                // (oldX, newX)
 
-  // std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500 po zmianie:\n";
-  // dzialania.WypiszXWiekszeOd(500);
+  std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500 po zmianie:\n";
+  dzialania.WypiszXWiekszeOd(500);
   
   return 0;
 }

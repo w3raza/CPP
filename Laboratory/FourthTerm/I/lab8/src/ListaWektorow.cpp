@@ -5,7 +5,7 @@ void ListaWektorow::Dodaj(Wektor2D* vec){
 }
 
 void ListaWektorow::Wypisz()const{
-    std::for_each(_list.begin(), _list.end(), [](Wektor2D* vec) -> void {std::cout << vec << std::endl;});
+    std::for_each(_list.begin(), _list.end(), [](Wektor2D* vec) -> void {std::cout << vec;});
 }
 
 void ListaWektorow::PosortujWedlugX(){
