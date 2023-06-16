@@ -4,6 +4,7 @@ Proszę dokończyć program tylko w podanych miejscach i zgodnie z podanymi waru
 
 #include <iostream>
 #include <list>
+#include <algorithm>
 
 template<typename U, typename T>
 void print_to_if(std::ostream& os, U first, U last, T t){
@@ -39,7 +40,7 @@ int main()
     print_to_if(std::cout << "Even: ", begin(c1), end(c1), f2);
     int add_value{-1};
     std::list<int> c12 = {7, 6, 5, 4, 3, 2, 1};
-    change(begin(c12), end(c12), f3{add_value});
+    change(begin(c12), end(c12), f3(add_value));
 
     print_to_if(std::cout << "All: ", begin(c12), end(c12), f1);
 }

@@ -17,17 +17,6 @@
 // oraz jej specjalizację dla klasy Punkt, dla której zamieniane są jedynie współrzędne, bez nazwy.
 
 // Pliku main.cpp, nie wolno modyfikowac.
-//
-// Ostateczny program powinien byc przyjazny dla programisty (miec czytelny 
-// i dobrze napisany kod), oraz powinna być spełniona zasada D.R.Y. 
-// - Don't Repeat Yourself.
-//
-// Kody źródłowe muszą znajdować się w katalogu do którego nikt oprócz
-// właściciela nie ma praw dostępu. Rozwiazanie (czyli dodane pliki i main.cpp 
-// należy wgrać do UPEL jako archiwum tar.gz, 
-// UWAGA:
-// * archiwum powinno zawierać katalog z zadaniem, np. lab09/
-// * archiwum nie powinno zawierać katalogu build/
 
 #include <iostream>
 #include "Punkt.h"
@@ -40,19 +29,19 @@ int main() {
   std::cout << "s1 " << s1.wsp<'x'>() <<  " " << s1.wsp<'y'>() << std::endl;
   std::cout << "s2 " << s2.wsp<'x'>() <<  " " << s2.wsp<'y'>() << std::endl;
   
-  std::cout << "max: " << Punkt::max(s1.wsp<'x'>(), s2.wsp<'x'>()) << " " << Punkt::max(s1.wsp<'y'>(), s2.wsp<'y'>()) << std::endl;
-  std::cout << "max: " << Punkt::max(s1, s2).wsp<'x'>() << " " << Punkt::max(s1, s2).wsp<'y'>() << std::endl;
+  // std::cout << "max: " << Punkt::max(s1.wsp<'x'>(), s2.wsp<'x'>()) << " " << Punkt::max(s1.wsp<'y'>(), s2.wsp<'y'>()) << std::endl;
+  // std::cout << "max: " << Punkt::max(s1, s2).wsp<'x'>() << " " << Punkt::max(s1, s2).wsp<'y'>() << std::endl;
 
-  std::cout << "porownanie: " << std::boolalpha <<(s1 < s2) << " " << (s2 < s1) << std::endl;  
+  // std::cout << "porownanie: " << std::boolalpha <<(s1 < s2) << " " << (s2 < s1) << std::endl;  
 
-  double a = 2.5, b = 3.1;
-  std::cout << "before swap(double): " << a << " " << b << std::endl; 
-  swap<double>(a,b);
-  std::cout << "after swap(double): " << a << " " << b << std::endl; 
+  // double a = 2.5, b = 3.1;
+  // std::cout << "before swap(double): " << a << " " << b << std::endl; 
+  // swap<double>(a,b);
+  // std::cout << "after swap(double): " << a << " " << b << std::endl; 
 
-  std::cout << "before swap(punkt): " << s1 << " " << s2 << std::endl;
-  swap<Punkt>(s1,s2); 
-  std::cout << "after swap(punkt): " << s1 << " " << s2 << std::endl;
+  // std::cout << "before swap(punkt): " << s1 << " " << s2 << std::endl;
+  // swap<Punkt>(s1,s2); 
+  // std::cout << "after swap(punkt): " << s1 << " " << s2 << std::endl;
 
 
 }

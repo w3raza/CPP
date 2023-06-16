@@ -35,7 +35,6 @@ namespace oop
 }
 int main()
 {
-
     typedef oop::Array<char> type;
     type a(rand() % 10 + 6);
 
