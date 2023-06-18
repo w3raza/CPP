@@ -1,57 +1,39 @@
 #include "Data.h"
 
-IntData::~IntData() {}
-
-int IntData::getInt()const{
-    return value;
-}
+// ----------------------------- IntData -----------------------------
 
 IntData::operator IntData*() {
     return this;
-}
-
-Data* IntData::clone() const {
-    return new IntData(*this);
-}
-
-void IntData::print(std::ostream& os) const {
-    os << value;
 }
 
 bool IntData::equals(Data* obj) const{
     return this->value == static_cast<IntData*>(obj)->value;
 }
 
-StringData::~StringData() {}
-
-std::string StringData::getString()const{
-    return value;
+Data* IntData::clone() const {
+    return new IntData(*this);
 }
 
-StringData::operator StringData*() {
-    return this;
+void IntData::print(std::ostream& os) const{
+    os << value;
 }
 
-Data* StringData::clone() const {
-    return new StringData(*this);
+bool IntData::isNumeric() const { 
+    return true; 
 }
 
-void StringData::print(std::ostream& os) const {
-    os << "\"" << value << "\"";
+std::string IntData::toString() const { 
+    return std::to_string(value); 
 }
 
-bool StringData::equals(Data* obj) const{
-    return this->value == static_cast<StringData*>(obj)->value;
-}
-
-FloatData::~FloatData() {}
-
-float FloatData::getFloat()const{
-    return value;
-}
+// ----------------------------- FloatData -----------------------------
 
 FloatData::operator FloatData*() {
     return this;
+}
+
+bool FloatData::equals(Data* obj) const{
+    return this->value == static_cast<FloatData*>(obj)->value;
 }
 
 Data* FloatData::clone() const {
@@ -62,18 +44,22 @@ void FloatData::print(std::ostream& os) const {
     os << value;
 }
 
-bool FloatData::equals(Data* obj) const{
-    return this->value == static_cast<FloatData*>(obj)->value;
+bool FloatData::isNumeric() const { 
+    return true; 
 }
 
-Boolean::~Boolean() {}
-
-bool Boolean::getBool()const{
-    return value;
+std::string FloatData::toString() const { 
+    return std::to_string(value); 
 }
+
+// ----------------------------- Boolean -----------------------------
 
 Boolean::operator Boolean*() {
     return this;
+}
+
+bool Boolean::equals(Data* obj) const{
+    return this->value == static_cast<Boolean*>(obj)->value;
 }
 
 Data* Boolean::clone() const {
@@ -87,6 +73,36 @@ void Boolean::print(std::ostream& os) const {
         os << "false";
 }
 
-bool Boolean::equals(Data* obj) const{
-    return this->value == static_cast<Boolean*>(obj)->value;
+bool Boolean::isNumeric() const { 
+    return false; 
+}
+
+std::string Boolean::toString() const { 
+    return (value ? "true" : "false"); 
+}
+
+// ----------------------------- StringData -----------------------------
+
+StringData::operator StringData*() {
+    return this;
+}
+
+bool StringData::equals(Data* obj) const{
+    return this->value == static_cast<StringData*>(obj)->value;
+}
+
+Data* StringData::clone() const {
+    return new StringData(*this);
+}
+
+void StringData::print(std::ostream& os) const {
+    os << "\"" << value << "\"";
+}
+
+bool StringData::isNumeric() const { 
+    return false; 
+}
+
+std::string StringData::toString() const { 
+    return value; 
 }

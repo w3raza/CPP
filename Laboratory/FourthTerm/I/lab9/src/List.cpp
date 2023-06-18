@@ -108,38 +108,25 @@ bool List::operator!=(List& other)const{
 }
 
 List List::numeric(){
-  List new_list = List(); 
-  Node* node = head;
-  while (node != nullptr) {
-    if(instanceof<IntData>(node->data)){
-      new_list.insert(node->data);
+  List result;
+  Node* temp = head;
+  while (temp != nullptr) {
+    if (temp->data->isNumeric()) {
+      result.insert(temp->data);
     }
-    node = node->next;
-  } 
-  delete[] node;
-
-  return new_list;
+    temp = temp->next;
+  }
+  return result;
 }
 
 List List::convert_to_stringdata() {
   List result;
-  Node* current = head;
-  
-  while (current != nullptr) {
-    if (dynamic_cast<const IntData*>(current->data) != nullptr) {
-      const IntData* intData = dynamic_cast<const IntData*>(current->data);
-      result.insert(StringData(std::to_string(intData->getInt())));
-    } else if (dynamic_cast<const FloatData*>(current->data) != nullptr) {
-      const FloatData* floatData = dynamic_cast<const FloatData*>(current->data);
-      result.insert(StringData(std::to_string(floatData->getFloat())));
-    } else if (dynamic_cast<const Boolean*>(current->data) != nullptr) {
-      const Boolean* boolData = dynamic_cast<const Boolean*>(current->data);
-      result.insert(StringData(boolData->getBool() ? "true" : "false"));
-    } else if (dynamic_cast<const StringData*>(current->data) != nullptr) {
-      const StringData* stringData = dynamic_cast<const StringData*>(current->data);
-      result.insert(stringData->clone());
+  Node* temp = head;
+  while (temp != nullptr) {
+    if (temp->data->isNumeric()) {
+      result.insert(new StringData(temp->data->toString()));
     }
-    current = current->next;
+    temp = temp->next;
   }
   return result;
 }
