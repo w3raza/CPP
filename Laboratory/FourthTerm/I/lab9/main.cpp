@@ -27,6 +27,7 @@ int main() {
   b.print();
   List c = b.numeric();
   c.print();
+  std::cout << "gowno";
   c.convert_to_stringdata().print();
 }
 /* wynik

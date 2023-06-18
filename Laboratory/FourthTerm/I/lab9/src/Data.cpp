@@ -2,6 +2,10 @@
 
 IntData::~IntData() {}
 
+int IntData::getInt()const{
+    return value;
+}
+
 IntData::operator IntData*() {
     return this;
 }
@@ -19,6 +23,10 @@ bool IntData::equals(Data* obj) const{
 }
 
 StringData::~StringData() {}
+
+std::string StringData::getString()const{
+    return value;
+}
 
 StringData::operator StringData*() {
     return this;
@@ -38,6 +46,9 @@ bool StringData::equals(Data* obj) const{
 
 FloatData::~FloatData() {}
 
+float FloatData::getFloat()const{
+    return value;
+}
 
 FloatData::operator FloatData*() {
     return this;
@@ -57,6 +68,9 @@ bool FloatData::equals(Data* obj) const{
 
 Boolean::~Boolean() {}
 
+bool Boolean::getBool()const{
+    return value;
+}
 
 Boolean::operator Boolean*() {
     return this;

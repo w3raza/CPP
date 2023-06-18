@@ -29,21 +29,19 @@ int main() {
   std::cout << "s1 " << s1.wsp<'x'>() <<  " " << s1.wsp<'y'>() << std::endl;
   std::cout << "s2 " << s2.wsp<'x'>() <<  " " << s2.wsp<'y'>() << std::endl;
   
-  // std::cout << "max: " << Punkt::max(s1.wsp<'x'>(), s2.wsp<'x'>()) << " " << Punkt::max(s1.wsp<'y'>(), s2.wsp<'y'>()) << std::endl;
-  // std::cout << "max: " << Punkt::max(s1, s2).wsp<'x'>() << " " << Punkt::max(s1, s2).wsp<'y'>() << std::endl;
+  std::cout << "max: " << Punkt::max(s1.wsp<'x'>(), s2.wsp<'x'>()) << " " << Punkt::max(s1.wsp<'y'>(), s2.wsp<'y'>()) << std::endl;
+  std::cout << "max: " << Punkt::max(s1, s2).wsp<'x'>() << " " << Punkt::max(s1, s2).wsp<'y'>() << std::endl;
 
-  // std::cout << "porownanie: " << std::boolalpha <<(s1 < s2) << " " << (s2 < s1) << std::endl;  
+  std::cout << "porownanie: " << std::boolalpha <<(s1 < s2) << " " << (s2 < s1) << std::endl;  
 
-  // double a = 2.5, b = 3.1;
-  // std::cout << "before swap(double): " << a << " " << b << std::endl; 
-  // swap<double>(a,b);
-  // std::cout << "after swap(double): " << a << " " << b << std::endl; 
+  double a = 2.5, b = 3.1;
+  std::cout << "before swap(double): " << a << " " << b << std::endl; 
+  swap<double>(a,b);
+  std::cout << "after swap(double): " << a << " " << b << std::endl; 
 
-  // std::cout << "before swap(punkt): " << s1 << " " << s2 << std::endl;
-  // swap<Punkt>(s1,s2); 
-  // std::cout << "after swap(punkt): " << s1 << " " << s2 << std::endl;
-
-
+  std::cout << "before swap(punkt): " << s1 << " " << s2 << std::endl;
+  swap<Punkt>(s1,s2); 
+  std::cout << "after swap(punkt): " << s1 << " " << s2 << std::endl;
 }
 /*
 s1 0 1
