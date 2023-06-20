@@ -1,6 +1,3 @@
-// ZADANIE WYKONYWANE W TRYBIE ZDALNYM, NIE NA OCENE
-// zachęcam do samodzielnego wykonywania! 
-//
 // Prosze dopisac kod, dodac nowe pliki, tak aby program wykonywal się, 
 // a wynik jego dzialania byl taki sam jak podany na końcu tego pliku.
 //
@@ -17,21 +14,10 @@
 // dla różnych typów...
 //
 // Pliku main.cpp, nie wolno modyfikowac.
-//
-// Ostateczny program powinien byc przyjazny dla programisty (miec czytelny 
-// i dobrze napisany kod), oraz powinna być spełniona zasada D.R.Y. 
-// - Don't Repeat Yourself.
-//
-// Kody źródłowe muszą znajdować się w katalogu do którego nikt oprócz
-// właściciela nie ma praw dostępu. Rozwiazanie (czyli dodane pliki i main.cpp) 
-// należy wgrać do UPEL jako archiwum tar.gz, 
-// UWAGA:
-// * archiwum powinno zawierać katalog z zadaniem, np. lab13/
-// * archiwum nie powinno zawierać katalogu build/
 
 #include <iostream>
 #include <stdexcept>
-#include "TransactionAction.h"
+#include "AccountState.h"
 
 class Msg : public Transaction::UndoAction {
   void Init() override {
@@ -43,7 +29,6 @@ class Msg : public Transaction::UndoAction {
   void Fail() override {
     std::cout << "Broken transaction" << std::endl;
   }
-  
 };
 
 int konto1 = 100;
