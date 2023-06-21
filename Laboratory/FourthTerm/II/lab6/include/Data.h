@@ -22,6 +22,15 @@ public:
     void print()const override;
 };
 
+class CharData : public Data{
+private:
+    char _value;
+public:
+    CharData(char val): _value(val){}
+    Data* clone() const override;
+    void print()const override;
+};
+
 class StringData : public Data{
 private:
     std::string _value;

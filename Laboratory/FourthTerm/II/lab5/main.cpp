@@ -16,24 +16,24 @@ int main() {
   a.insert(Fraction(4,3), List::End); // dodajemy na koniec
   std::cout << "--- Drukujemy liste a ---\n";
   a.print();
-  // a.insert(StringData("Zaczynamy"),  List::Begin); // dodajemy ponownie na początek
-  // a.insert(StringData("2/15"), List::End);
-  // a.insert(StringData("-5/7")); // po wyniku można poznać gdzie domyślnie dodawane sa elementy
-  // a.insert(Fraction(26)).insert(StringData("Koniec"));
-  // std::cout << "--- Lista a ---\n";
-  // a.print();
+  a.insert(StringData("Zaczynamy"),  List::Begin); // dodajemy ponownie na początek
+  a.insert(StringData("2/15"), List::End);
+  a.insert(StringData("-5/7")); // po wyniku można poznać gdzie domyślnie dodawane sa elementy
+  a.insert(Fraction(26)).insert(StringData("Koniec"));
+  std::cout << "--- Lista a ---\n";
+  a.print();
 
-  // std::cout << "--- Kopiujemy liste b=a ---\n";
-  // List b = a;
-  // b.insert(Fraction(100));
-  // std::cout << "Lista a: " << a;
-  // std::cout << "Lista b: " << b;
+  std::cout << "--- Kopiujemy liste b=a ---\n";
+  List b = a;
+  b.insert(Fraction(100));
+  std::cout << "Lista a: " << a;
+  std::cout << "Lista b: " << b;
 
-  // std::cout << "--- Zmieniamy liste a ---\n";
-  // a.insert(StringData("Hej"), List::Begin);
-  // std::cout << "Lista a: " << a;
-  // std::cout << "Lista b: " << b;
-  // return 0;
+  std::cout << "--- Zmieniamy liste a ---\n";
+  a.insert(StringData("Hej"), List::Begin);
+  std::cout << "Lista a: " << a;
+  std::cout << "Lista b: " << b;
+  return 0;
 }
 
 /* oczekiwany wynik main
