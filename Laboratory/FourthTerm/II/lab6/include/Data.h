@@ -10,6 +10,8 @@ public:
     virtual ~Data() = default;
     virtual Data* clone() const = 0;
     virtual void print()const = 0;
+    virtual double eval() const = 0;
+    virtual bool isNumber() const = 0;
 };
 
 class Fraction : public Data{
@@ -20,6 +22,8 @@ public:
     Fraction(int numerator, int denominator = 1): _numerator(numerator), _denominator(denominator){}
     Data* clone() const override;
     void print()const override;
+    double eval() const override;
+    bool isNumber() const override;
 };
 
 class CharData : public Data{
@@ -29,6 +33,8 @@ public:
     CharData(char val): _value(val){}
     Data* clone() const override;
     void print()const override;
+    double eval() const override;
+    bool isNumber() const override;
 };
 
 class StringData : public Data{
@@ -38,5 +44,7 @@ public:
     StringData(std::string val): _value(val){}
     Data* clone() const override;
     void print()const override;
+    double eval() const override;
+    bool isNumber() const override;
 };
 #endif

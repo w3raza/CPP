@@ -1,5 +1,13 @@
 #include "List.h"
 
+List::~List()
+ {
+    for (Data* el : elements) {
+            delete[] el;
+    }
+    elements.clear();
+}
+
 List& List::insert(const Data& data, const Position& p){
     Data* cloned = data.clone();
     switch (p)
@@ -29,3 +37,50 @@ std::ostream& operator<<(std::ostream& os, const List& l){
     l.print();
     return os;
 }  
+
+List List::reverse() const {
+    List reversed;
+    reversed.elements = this->elements; // kopiujemy elementy
+    std::reverse(reversed.elements.begin(), reversed.elements.end()); // odwracamy kopię
+    return reversed; // zwracamy nową listę z odwróconymi elementami
+}
+
+Data* List::find(const Data& data) const{
+    Data* cloned = data.clone();
+    
+    for(auto* el : elements){
+        if(el == cloned){
+            return el;
+        }
+    }
+    return nullptr;
+}
+
+List List::copy_if(bool _is) const{
+    List new_list;
+
+    if(_is){
+        for(auto el: elements){
+            if(!el->isNumber()){
+                new_list.insert(*el);
+            }
+        }
+    }else{
+        for(auto el: elements){
+            if(el->isNumber()){
+                new_list.insert(*el);
+            }
+        }
+    }
+
+    return new_list;
+}
+
+std::vector<double> List::eval() const{
+    std::vector<double> _vec;
+
+    for(auto el: elements){
+        _vec.push_back(el->eval());
+    }
+    return _vec;
+}
