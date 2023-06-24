@@ -2,7 +2,9 @@
   Stworzymy klasę reprezentującą tablicę danych. Można ją sortować na różne sposoby.
  
  UWAGA!
-    Zadanie należy wykonać bez żadnych tradycyjnych pętli ze standardowego C (nawet w print), lecz z pomocą tych dedykowanych kontenerom STL oraz iteratorów.
+    Zadanie należy wykonać bez żadnych tradycyjnych pętli ze standardowego C (nawet w print), 
+	lecz z pomocą tych dedykowanych kontenerom STL oraz iteratorów.
+	
 	For dla kontenerów jest OK, ale proszę choć raz skorzystać z for_each.
 
  Wskazówki:
