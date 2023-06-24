@@ -1,8 +1,12 @@
 
 /**
   Polimorfizm i dziedziczenie wielokrotne na przykładzie rysowania kształtów.
+  
   Dane są klasy reprezentujące kształty takie jak prostokąt i koło.
-  Prostokąt (Rectangle) opisany jest przez dwa punkty, natomiast koło (Circle) przez promień i środek koła. Jest jeszcze klasa  (shapeComposite) stanowiąca kompozycję kształtów na zasadzie sumy, iloczynu albo różnicy dwóch figur, zawierająca wskaźniki shared_ptr<Shape> oraz klasę enum z wartościami {INTERSECTION, SUM, DIFFERENCE}.
+  Prostokąt (Rectangle) opisany jest przez dwa punkty, natomiast koło (Circle) przez promień i środek koła. 
+  Jest jeszcze klasa  (shapeComposite) stanowiąca kompozycję kształtów na zasadzie sumy,
+  iloczynu albo różnicy dwóch figur, zawierająca wskaźniki shared_ptr<Shape> oraz klasę enum z wartościami {INTERSECTION, SUM, DIFFERENCE}.
+
   Wszystkie te klasy te posiadają funkcję isIt zwracającą, czy podany punkt znajduje się w obrębie figury, dzięki czemu mozna ją narysować.
   Aby sprawdzić, czy punkt należy do koła, odległość punktu od środka powinna być mniejsza lub równa promieniowi, z prostokatem sobie poradzicie. 
   Ponadto klasy Circle i Rectangle należą do grupy figur podstawowych (BasicShape), dla których istnieje zdefiniowany wzór na pole figury (dla prostokąta (x2-x1)*(y2-y1))
