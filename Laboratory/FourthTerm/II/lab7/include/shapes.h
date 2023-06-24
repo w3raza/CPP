@@ -6,6 +6,10 @@
 #include <memory>
 #include <cmath>
 
+#ifndef M_PI
+    constexpr double M_PI = 3.1415926;
+#endif
+
 enum ShapeOperation{
     SUM,
     INTERSECTION,
@@ -27,6 +31,7 @@ class Shape{
 public:
     virtual ~Shape() = default;
     virtual bool isIn(unsigned x, unsigned y) const = 0;
+    virtual void print(std::ostream& os) const = 0;
 };
 
 class BasicShape : virtual public Shape{
@@ -40,9 +45,5 @@ public:
     virtual ~HasDiagonal() = default;
     virtual double diagonal() const = 0;
 };
-
-void printShape(const Shape& shape, unsigned x, unsigned y){
-
-}
 
 #endif

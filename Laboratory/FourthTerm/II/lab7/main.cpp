@@ -65,7 +65,7 @@ int main()
     const Circle circle(center.x(), center.y(), radius);
     cout << "Area = " << circle. area() << std::endl;
     cout << std::boolalpha 
-      << circle.isIn(4,1) << endl //false
+      << circle.isIn(4,0) << endl //false
       << circle.isIn(3,1) << endl //true
       << circle.isIn(6,4) << endl; //true
     printShape(&circle, xTo, yTo + radius);
