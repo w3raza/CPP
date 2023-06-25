@@ -10,13 +10,13 @@ private:
     double _sum;
 public:
     Sum(double sum): _sum(sum){}
-    double value() const{}
-    void operator()(double sum){}
+    double value() const{ return _sum;}
+    void operator()(double sum){ _sum += sum;}
 };
 
-Sum& sumData(const Data& d1){
-    std::for_each(d._vec.)
-    return Sum();
+Sum sumData(const Data& d1){
+    double s = d1.sum();
+    return Sum(s);
 }
 
 #endif
