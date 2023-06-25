@@ -1,23 +1,9 @@
-// ZADANIE WYKONYWANE W TRYBIE ZDALNYM, NIE NA OCENE
-// zachęcam do samodzielnego wykonywania! 
-//
 // Prosze dopisać kod, dodac nowe pliki, tak aby program wykonywal się, 
 // a wynik jego dzialania byl taki sam jak podany na końcu tego pliku.
 //
 // Celem zadania jest zdefiniowanie odpowiednich funktorów, klas szablonowych,
 // funkcji nienazwanych lambda, odpowiednio wykorzystanach w poniższmym main.
 // UWAGA: część zadania wykonujemy modyfikując plik main.cpp
-//
-// Ostateczny program powinien byc przyjazny dla programisty (miec czytelny 
-// i dobrze napisany kod), oraz powinna być spełniona zasada D.R.Y. 
-// - Don't Repeat Yourself.
-//
-// Kody źródłowe muszą znajdować się w katalogu do którego nikt oprócz
-// właściciela nie ma praw dostępu. Rozwiazanie (czyli dodane pliki i main.cpp) 
-// należy wgrać do UPEL jako archiwum tar.gz, 
-// UWAGA:
-// * archiwum powinno zawierać katalog z zadaniem, np. lab14/
-// * archiwum nie powinno zawierać katalogu build/
 
 #include <iostream>
 #include "FunLambdas.hh"
@@ -61,8 +47,8 @@ int main() {
 
   s = 0;
   // ZMODYFIKUJ DEFINICJĘ tak aby lambda była odpowiednikiem flcpp::sum
-  // std::for_each(a.begin(), a.end(), [](int x) {} );
-  // std::cout << "LAMBDA:  Sum = " << s << std::endl;
+  std::for_each(a.begin(), a.end(), [&](int x) { s += x; } );
+  std::cout << "LAMBDA:  Sum = " << s << std::endl;
 
   // _________ 
   // ZADANIE 3
@@ -75,7 +61,7 @@ int main() {
   flcpp::filter(a,flcpp::GreaterThan<int>(value)); // Zdefiniuj odpowieni szablon funktora GreaterThan
   
   // ZMODYFIKUJ DEFINICJĘ tak aby lambda była odpowiednikiem flcpp::GreaterThan dla typu int
-  // flcpp::filter(a, []() {} );
+  flcpp::filter(a, [value](int x) {return x > value;} );
   return 0;
 
 }
