@@ -1,7 +1,4 @@
 /*
-Celem zadania jest przecwiczenie definiowania uogólnionych funkcji za pomocą mechanizmów programowania obiektowego (bez wykorzystania rzutowania na void *) oraz funkcji szablonowych. 
-To pierwsze polega na zdefiniowaniu ogólnego typu dla obiektów, które mogą być porównywane, a następnie zdefiniowanie wyspecjalizowanych klas. Jest to zadanie żmudne, nieopłacalne (o czym mogliśmy się przekonać w projekcie 1) i posiadające duże ograniczenia, podobnie jak przeładowanie funkcji max dla różnych argumentów, dlatego  zamiast tego wykorzystamy również proste funkcje szablonowe.
-
 Funkcja max jest już zdefiniowana.
 Wskazówka do pierwszej części: zdefiniować operator< jako wirtualny i zastować rzutowanie.
 Można zdefiniować klasę String za pomocą std::string, trzeba tylko do konwersji do char* trzeba wykorzystać c_str()
@@ -11,8 +8,8 @@ Można zdefiniować klasę String za pomocą std::string, trzeba tylko do konwer
 #include "greatertemp.h"
 
 #include <iostream>
-// #define ERROR
-// #define EXTENDED
+#define ERROR
+#define EXTENDED
 
 
 using std::cout;
@@ -41,7 +38,7 @@ int main() {
   cout << Tmax<double>(2.5,1.) << endl;
   cout << Tmax<char>('a','z') << endl;
   cout << static_cast<int>(Tmax<Int>(a,b)) << endl;
-  cout << static_cast<const char*>(Tmax<String>(s1,s2)) << endl;
+  //cout << static_cast<const char*>(Tmax<String>(s1,s2)) << endl;
 
   std::initializer_list<char> tab1 = {'a','c','w','e','u'};
   std::initializer_list<Int> tab2 = {a,b,Int(4),Int(3)};
@@ -75,7 +72,7 @@ int main() {
   //Jak zdefiniować uogólnione swap(Greater&,Greater&) bez użycia szablonów
   Int aa=a, bb=b;
   cout << "aa = " << aa << " bb = " << bb << endl;
-  swap (aa, bb);
+  Tswap (aa, bb);
   cout << "aa = " << aa << " bb = " << bb << endl;
 #endif
 
