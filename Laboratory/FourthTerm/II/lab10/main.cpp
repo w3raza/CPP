@@ -2,9 +2,11 @@
  LinkedList, czyli struktura danych, w której elementy danych przechowywane są 
  w postaci węzłów (Node) zawierających dane oraz wskaźnik na następny element w liście,
  znamy już z wczesniejszych zajęć.
+
  Tym razem zaimplementujemy listę szablonową, oczywiście bez użycia żadnych standardowych kontenerów
  a dodatkowo z inteligentnymi wskaźnikami, a dla urozmaicenia będzie to lista cykliczna, 
  czyli ostatni element wskazuje na pierwszy.
+ 
  Dla ułatwienia warto przechowywać dwa wskaźniki na head i tail.
  Metody klasy CircularList mają być zdefiniowane poza klasą.
 */
@@ -12,7 +14,7 @@
 #include <iostream>
 #include "circularList.h" 
 
-// #define EXTENDED
+#define EXTENDED
 
 int main() {
     CircularList<int> intList;
