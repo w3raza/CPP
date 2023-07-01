@@ -1,17 +1,13 @@
 /* 
 Tematem zadania jest dziedziczenie szablonów i specjalizacje klas.
-W ramach zadania należy zdefiniować szablon klasy listy jednokierunkowej CustomList, będacej rozszerzeniem listy std::list (tylko i wyłącznie) o pewne funkcjonalności jak np łączenie push_back czy specyficzne odwracanie listy oraz UniqList będącej rozszerzeniem CustomList z dwoma specjalizacjami:
+W ramach zadania należy zdefiniować szablon klasy listy jednokierunkowej CustomList, będacej rozszerzeniem listy std::list (tylko i wyłącznie) 
+o pewne funkcjonalności jak np łączenie push_back czy specyficzne odwracanie listy oraz UniqList będącej rozszerzeniem CustomList z dwoma specjalizacjami:
 Dla bool=true jest to lista bez powtórzeń elementów.
 Dla bool=false jest to praktycznie lista CustomList.
 Jeśli chodzi o sumAll(), zakładamy, że każda z klas ma zdefiniowany operator + i na tym bazujemy.
 UWAGA:
 * Klasa CustomList może dziedziczyć tylko i wyłącznie po std::list, zastosowanie innego szablonu będzie zadaniem nie na temat.
 * Iterator tail() nie jest tym samym co end()
-* Pamiętajcie o zasadzie DRY, jeśli jakaś funkcja się powtarza, może warto dac ją gdzie indziej...
-* Funkcje  std::list są dostępne na stronie:
-https://en.cppreference.com/w/cpp/container/list
-Można korzystać wyłącznie z tego źródła internetowego. 
-* Za zadanie bez list ze specjalizacją można otrzymać maksimum 5 punktów. Gdyby komuś z Państwa sprawiało problem zdefioniowanie szablonów ze specjalizacją, można skorzystać z tego koła ratunkowego i zakomentować linię 22.
 */
 
 #include <iostream>
@@ -53,26 +49,26 @@ int main() {
     std::cout << "Posortowana lista bez powtorzen: " << intList;
     std::cout << "Wynik dodawania: " << intList.sumAll() << std::endl;
 #ifdef SPEC
-    cout << "\n***** Lista String *****" << endl;
-    UniqList<string, true> uniqList;
-    uniqList.push_back("ala").push_front("ola").push_back("ola");
-    uniqList.push_back("ala").push_front("iza").push_back("ola");
-    for (auto it = uniqList.head(); it != uniqList.end(); ++it) {
-        cout << uniqList[it] << " ";
-    }
-    std::cout << "\nWynik konkatenacji: " << uniqList.sumAll() << std::endl;
+    // cout << "\n***** Lista String *****" << endl;
+    // UniqList<string, true> uniqList;
+    // uniqList.push_back("ala").push_front("ola").push_back("ola");
+    // uniqList.push_back("ala").push_front("iza").push_back("ola");
+    // for (auto it = uniqList.head(); it != uniqList.end(); ++it) {
+    //     cout << uniqList[it] << " ";
+    // }
+    // std::cout << "\nWynik konkatenacji: " << uniqList.sumAll() << std::endl;
 
-    UniqList<string, false> noUniqList;
-    noUniqList.push_back("ala").push_front("ola").push_back("ola");
-    noUniqList.push_back("ala").push_front("iza").push_back("ola");
-    // eksperymenty, zamiast zastosować rbegin i rend
-    for (auto it = noUniqList.tail(); it != noUniqList.head(); it--) { 
-        cout << noUniqList[it] << " ";
-    }
-    std::cout << noUniqList.front() << std::endl;
-    std::cout << noUniqList.copy_reversed();    
-    noUniqList.removeDuplicates();
-    std::cout << "Lista bez powtorzen: " << noUniqList;
+    // UniqList<string, false> noUniqList;
+    // noUniqList.push_back("ala").push_front("ola").push_back("ola");
+    // noUniqList.push_back("ala").push_front("iza").push_back("ola");
+    // // eksperymenty, zamiast zastosować rbegin i rend
+    // for (auto it = noUniqList.tail(); it != noUniqList.head(); it--) { 
+    //     cout << noUniqList[it] << " ";
+    // }
+    // std::cout << noUniqList.front() << std::endl;
+    // std::cout << noUniqList.copy_reversed();    
+    // noUniqList.removeDuplicates();
+    // std::cout << "Lista bez powtorzen: " << noUniqList;
 #endif
     return 0;
 }
