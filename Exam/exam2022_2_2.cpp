@@ -1,46 +1,67 @@
 #include <iostream>
 
+// Deklarujemy generyczny szablon klasy B.
 template<typename T>
 struct B;
 
+// Specjalizujemy B dla typów niebędących wskaźnikami. U1 oznacza specjalizację dla typów niebędących wskaźnikami.
 template<typename T>
-struct B// U1
+struct B
 {
-    //U2
+    // Definiujemy typ T jako value_type dla tej klasy. U2 to deklaracja aliasu typu.
     using value_type = T;
+
+    // Konstruktor, który inicjalizuje _v przekazaną wartością.
     B(T val) :_v{val} {}
-    value_type get() const { return _v; }
+
+    // Metoda zwracająca przechowywaną wartość.
+    T& get() { return _v; }
 
 private:
+    // Przechowujemy wartość typu T.
     value_type _v = value_type();
 };
 
+// Specjalizujemy B dla typów będących wskaźnikami. U3 oznacza specjalizację dla typów będących wskaźnikami.
 template<typename T>
-struct B<T*>// U3
+struct B<T*>
 {
-    //U4
+    // Definiujemy typ T jako value_type dla tej klasy. U4 to deklaracja aliasu typu.
     using value_type = T;
+
+    // Konstruktor, który inicjalizuje _p przekazanym wskaźnikiem.
     B(T* ptr) : _p{ptr} {}
+
+    // Wyłączamy konstruktor kopiujący, aby uniknąć przypadkowego skopiowania i potencjalnych problemów z pamięcią.
     B(const T&) = delete;
-    value_type get() const { return *_p; }
+
+    // Destruktor, który zwalnia dynamicznie zaalokowaną pamięć.
+    ~B() { delete[] _p; }
+
+    // Metoda zwracająca wartość przechowywaną pod wskaźnikiem.
+    T& get() const { return *_p; }
 
 private:
-    value_type* _p;//U5
+    // Przechowujemy wskaźnik na wartość typu T.
+    value_type* _p; //U5
 };
 
 int main()
 {
-    //using int_b = B<int>;       //
-    //using int_p_b = B<int*>;    //nie pamiętam czy using czy typedef
+    // Definiujemy typy dla wygody.
     typedef B<int> int_b;
-    typedef B<int*> int_p_b;        //jednak typedef
+    typedef B<int*> int_p_b;    
 
+    // Tworzymy obiekty typu B.
     int_b a(1);
     int_b a_copy(a);
     int_p_b b(new int_p_b::value_type{2});
-    // int_p_b e = b; //error
-    // b=b //error
     
+    // Linie poniżej są wykomentowane, ponieważ wywołują błędy. Konstruktor kopiujący jest wyłączony dla typu B<int*>.
+    //int_p_b e = b; //error
+    //b = b; //error
+    
+    // Wyświetlamy przechowywane wartości.
     std::cout << "a=" << a.get() << std::endl;
     std::cout << "a_copy=" << a_copy.get()+1 << std::endl;
     std::cout << "b=" << b.get()+1 << std::endl;
@@ -74,12 +95,12 @@ b=3
 
 // int main()
 // {
-//     //using int_b = B<int>;       //
-//     //using int_p_b = B<int*>;    //nie pamiętam czy using czy typedef
+//     //using int_b = B<int>;      
+//     //using int_p_b = B<int*>;  
 //     typedef B<int> int_b
-//     typedef B<int> int_p_b        //jednak typedef
+//     typedef B<int> int_p_b    
 
-//     int_b a(2);
+//     int_b a(1);
 //     int_b a_copy(a);
 //     int_p_b b(new int_p_b::value_type{2});
 //     // int_p_b e = b; //error

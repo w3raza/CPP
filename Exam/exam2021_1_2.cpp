@@ -44,8 +44,6 @@ struct Type_t
 
 };
 
-
-
 using Float_t = Type_t<>;
 
 int main()
@@ -62,15 +60,15 @@ int main()
 
     Type_t t2 = std::move(t1);
 
-    // t3=std::move(t2); // wydaje mi się, że tej linijki nie było
-    const Type_t t3 = std::move(t2);                                  // tutaj było chyba const t3, ale nie pamiętam, w jaki sposób było inicjalizowane
-    //                                                    //(*t3).first= 13;
-    //                                                    // t3->second = 13;
-    //                                                    // Powyższe się mają nie kompilować
-    (*t3).first = Type_t::value_type::first_type{1};   //?
-    t3->second = Type_t::value_type::second_type{2.5}; //?
+    const Type_t t3 = std::move(t2);     
+    // t3=std::move(t2);                      
+    //(*t3).first= 13;
+    // t3->second = 13;
+    // Powyższe się mają nie kompilować
 
-    // // std::cout<< /*?Ktos pamięta?*/
+    (*t3).first = Type_t::value_type::first_type{1};   
+    t3->second = Type_t::value_type::second_type{2.5};
+
     std::cout << (*t3).first._v << ", " << t3->second << std::endl;
 }
 /* output:

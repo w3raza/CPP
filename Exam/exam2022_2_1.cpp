@@ -27,7 +27,7 @@ int main()
 a-> A::A(int,int): _a=0,_b=0
 A::A(): _a=0,_b=0
 b-> A::A(int,int): _a=1,_b=0
-A::A(): _a=1,_b=0
+A::A(int): _a=1,_b=0
 c-> A::A(int,int): _a=1,_b=2
 d-> A::[...]: _a=1,_b=2
 */
@@ -59,7 +59,7 @@ d-> A::[...]: _a=1,_b=2
 // a-> A::A(int,int): _a=0,_b=0
 // A::A(): _a=0,_b=0
 // b-> A::A(int,int): _a=1,_b=0
-// A::A(): _a=1,_b=0
+// A::A(int): _a=1,_b=0
 // c-> A::A(int,int): _a=1,_b=2
 // d-> A::[...]: _a=1,_b=2
 // */
