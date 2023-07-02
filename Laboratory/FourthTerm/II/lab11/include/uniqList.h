@@ -2,26 +2,40 @@
 #include <iostream>
 #include <list>
 
-// template<class T, bool K = true>
-// class UniqList{
-// private:
-//     std::list<T> _list;
-// public:
-//     UniqList& push_back(const T& el);
-//     UniqList& push_front(const T& el);
-//     UniqList& head();
-//     UniqList& tail();
-//     T& front();
-//     UniqList& end();
-//     T& operator[](const UniqList& other);
-//     UniqList& reverse();
-//     UniqList& copy_reversed() const;
-//     void removeDuplicates();
-//     T sumAll() const;
-//     T& operator++();
-//     T& operator--(int);
-//     bool operator !=(const UniqList& other) const;
-// };
+#include "customList.h"
 
-// template<class T, class K>
-// std::ostream& operator<<(std::ostream& os, const UniqList<T, true>& l);
+template<class T, bool U>
+class UniqList : public CustomList<T>{
+public:
+    UniqList& push_back(const T& el){
+        if constexpr(U){
+            if(!this->contains(el))
+            CustomList<T>::push_back(el);
+        }else{
+            CustomList<T>::push_back(el);
+        }
+
+        return *this;
+    }
+
+    UniqList& push_front(const T& el){
+        if constexpr(U){
+            if(!this->contains(el))
+            CustomList<T>::push_front(el);
+        }else{
+            CustomList<T>::push_front(el);
+        }
+
+        return *this;
+    }
+
+    typename std::list<T>::iterator head(){
+        return this->begin();
+    }
+
+    typename std::list<T>::iterator tail(){
+        auto it = this->end();
+        --it; // przesunięcie iteratora do tyłu o jedno miejsce, żeby wskazywał na ostatni element
+        return it;
+    }
+};

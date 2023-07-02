@@ -49,26 +49,26 @@ int main() {
     std::cout << "Posortowana lista bez powtorzen: " << intList;
     std::cout << "Wynik dodawania: " << intList.sumAll() << std::endl;
 #ifdef SPEC
-    // cout << "\n***** Lista String *****" << endl;
-    // UniqList<string, true> uniqList;
-    // uniqList.push_back("ala").push_front("ola").push_back("ola");
-    // uniqList.push_back("ala").push_front("iza").push_back("ola");
-    // for (auto it = uniqList.head(); it != uniqList.end(); ++it) {
-    //     cout << uniqList[it] << " ";
-    // }
-    // std::cout << "\nWynik konkatenacji: " << uniqList.sumAll() << std::endl;
+    cout << "\n***** Lista String *****" << endl;
+    UniqList<string, true> uniqList;
+    uniqList.push_back("ala").push_front("ola").push_back("ola");
+    uniqList.push_back("ala").push_front("iza").push_back("ola");
+    for (auto it = uniqList.head(); it != uniqList.end(); ++it) {
+        cout << uniqList[it] << " ";
+    }
+    std::cout << "\nWynik konkatenacji: " << uniqList.sumAll() << std::endl;
 
-    // UniqList<string, false> noUniqList;
-    // noUniqList.push_back("ala").push_front("ola").push_back("ola");
-    // noUniqList.push_back("ala").push_front("iza").push_back("ola");
-    // // eksperymenty, zamiast zastosować rbegin i rend
-    // for (auto it = noUniqList.tail(); it != noUniqList.head(); it--) { 
-    //     cout << noUniqList[it] << " ";
-    // }
-    // std::cout << noUniqList.front() << std::endl;
-    // std::cout << noUniqList.copy_reversed();    
-    // noUniqList.removeDuplicates();
-    // std::cout << "Lista bez powtorzen: " << noUniqList;
+    UniqList<string, false> noUniqList;
+    noUniqList.push_back("ala").push_front("ola").push_back("ola");
+    noUniqList.push_back("ala").push_front("iza").push_back("ola");
+    // eksperymenty, zamiast zastosować rbegin i rend
+    for (auto it = noUniqList.tail(); it != noUniqList.head(); it--) { 
+        cout << noUniqList[it] << " ";
+    }
+    std::cout << noUniqList.front() << std::endl;
+    std::cout << noUniqList.copy_reversed();    
+    noUniqList.removeDuplicates();
+    std::cout << "Lista bez powtorzen: " << noUniqList;
 #endif
     return 0;
 }

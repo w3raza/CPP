@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "__config": "cpp",
+        "__hash_table": "cpp",
+        "algorithm": "cpp",
+        "cstdio": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "typeinfo": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "__string": "cpp"
+    }
+}

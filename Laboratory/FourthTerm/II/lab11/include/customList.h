@@ -32,28 +32,38 @@ public:
     }
 
     CustomList reverse(){
-         CustomList reversed = *this;
+        CustomList& reversed = *this;
         std::reverse(reversed.begin(), reversed.end());
         return reversed;
     }
 
     CustomList copy_reversed() const{
+        CustomList reversed = *this;
+        std::reverse(reversed.begin(), reversed.end());
+        return reversed;
     }
 
     void removeDuplicates(){
-
+        this->sort();
+        this->unique();
     }
 
-    T sumAll() const{
-
+    T& sumAll() const{
+        T sum = T();
+        for(auto& el : *this){
+            sum += el;
+        }
+        return sum;
     }
 
     void print() const{
-        std::for_each(this->begin(), this->end(), " ");
+        for(const auto& i : *this)
+            std::cout << i << " ";
+        std::cout << "\n";
     }
 
     T& operator[](typename std::list<T>::iterator it){
-        
+        return *it;
     }
 };
 
