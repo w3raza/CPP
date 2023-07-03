@@ -20,6 +20,7 @@ public:
     {
         _p = p;
     }
+    
     ~ptr()
     {
         delete _p;
@@ -33,3 +34,4 @@ int main()
     }
     ptr p{new Int_t{2}};
 }
+//K_1;D_1;K_2;D_2;

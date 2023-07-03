@@ -32,5 +32,6 @@ int main() {
 
     return 0;
 }
-
-
+/*Wyjście programu*/
+// Type ... is_pod = 1, Copying POD data
+// Type ... is_pod = 0, Copying non-POD data

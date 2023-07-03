@@ -1,4 +1,3 @@
-namespace std {class auto_ptr{}; class unique_ptr{}; class shared_ptr{} ; }
 #include <iostream> 
 
 struct A { int i = 1; };
@@ -6,11 +5,15 @@ struct A { int i = 1; };
 template<typename T>
 class ptr{
 public:
-    ptr(): _p(nullptr) {} //const ptr<A> b;
-    explicit ptr(T* t): _p(t){} //explicit dla ptr<A>  _b_error = new A;
+   //explicit bo ptr<A>  _b_error = new A;, 
+    //A* a = nullptr bo ptr<A>() dlatego domyślna wartość = konstruktor bezargumentowy
+    explicit ptr(A* a = nullptr): _p(a){} 
+
     ~ptr() {
         delete _p;
     }
+
+    ptr<T>& operator=(const ptr<T>&&) = delete; //bo const ptr<A> _c_error = a; 
 
     T& operator*() const{
         return *_p;
@@ -29,8 +32,6 @@ public:
     }
    
 private:
-    //ptr<T>& operator=(const ptr<T>&) = delete; 
-    ptr<T>& operator=(const ptr<T>&&) = delete; // const ptr<A> _c_error = a;     // Odkomentowanie powoduje błąd kompilacji 
     T* _p;
 };
 

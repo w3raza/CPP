@@ -1,7 +1,4 @@
-#include <utility> // dla std::pair
 #include <iostream>
-
-/*Uzupełnij*/
 
 template<typename T>
 struct ptr
@@ -59,6 +56,7 @@ int main()
     t1->second = Type_t::value_type::second_type{2.5};
 
     Type_t t2 = std::move(t1);
+    std::cout << (*t2).first << ", " << t2->second._v << "\n";
 
     const Type_t t3 = std::move(t2);     
     // t3=std::move(t2);                      

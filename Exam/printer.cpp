@@ -21,3 +21,4 @@ int main()
     set_for_each(t, 7);
     printer(t);
 }
+//1;2;3;0;0;
