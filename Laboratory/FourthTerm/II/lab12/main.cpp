@@ -8,13 +8,6 @@ dlatego też na początek zadania warto sobie zakomentować linię #define EXTEN
 Proszę uważnie prześledzić output, bo zaszła mała zmiana w wypisywaniu klasy:
 nazwa - liczba_zajętych_miejsc/liczba_wszystkich_miejsc.
 UWAGA!
- * Za poprawny output w domowej części oraz prawidłową kompilację z częścią EXTENDED
-można otrzymać maksymalnie 5 punktów (#define EXTENDED musi być odkomentowane).
- * Należy zachować porządek w kodzie. Jeśli macie w kodzie funkcje wykonujące to samo,
-ale nazywające się inaczej, należy dokonać refactoringu.
- * Korzystanie z algorytmów, for_each oraz funkcji lambda będzie znacząco wpływało na ocenę kodu.
- * Nowe metody dopisane dzisiaj w ramach rozszerzenia należy odgraniczyć w kodzie w stylu:
-//-------------------- EXTENDED --------------------//
 */
 
 #include <iostream>
@@ -66,6 +59,7 @@ int main()
   l1a->print();
   std::cout << "---Przydzialy w klasach:---\n";
   rekrutacja.printRecruit();
+//-------------------- EXTENDED --------------------//
 #ifdef EXTENDED
   std::cout << "============ WERSJA EXTENDED ============\n";
   std::cout << "Srednia kandydatow: " << rekrutacja.getAverageStudScore() <<std::endl;
