@@ -1,32 +1,37 @@
 #include <iostream>
 
-class is_printable {
-public:
-	virtual void print(std::ostream&) const {}
+// Definiujemy abstrakcyjną klasę bazową, która będzie wymagać od każdej klasy dziedziczącej
+// implementacji funkcji print_to_stream. Wszystkie klasy, które mogą być drukowane, muszą 
+// dziedziczyć po tej klasie.
+struct is_printable
+{
+	virtual std::ostream& print(std::ostream& os) const = 0;
 };
 
-class A: public is_printable {
-public:
-	A(const char* str=""): s(str) {}
-	void print(std::ostream& o) const { o << s; }
-private:
-	const char* s;
+struct A : is_printable{
+	const char* _name;
+
+	A(const char* name): _name(name){}
+	std::ostream& print(std::ostream& os) const override{
+		return os << _name;
+	}
 };
 
-class B: public is_printable {
-public:
-	B(int value=0): val(value) {}
-	void print(std::ostream& o) const { o << val; }
-private:
-	int val;
+struct B : is_printable{
+	int _number;
+
+	B(const int& num): _number(num){}
+	std::ostream& print(std::ostream& os) const override{
+		return os << _number;
+	}
 };
 
-std::ostream& operator << (std::ostream& s, const is_printable& o) {
-	o.print(s);
-	return s;
+// Przeładowanie operatora << dla wszystkich klas dziedziczących po is_printable.
+// Funkcja ta będzie wywoływać funkcję print z odpowiedniej klasy.
+std::ostream& operator<<(std::ostream& os, const is_printable& obj){
+	return obj.print(os);
 }
 
-std::ostream& operator << (std::ostream& s, const is_printable& o);
 
 int main() {
 	A a{"Tekst"};
@@ -38,5 +43,6 @@ int main() {
 
     return 0;
 }
-
-
+/*Wyjście programu*/
+//a=Tekst;	b=123;
+// a=Tekst;	b=123;
