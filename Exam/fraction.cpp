@@ -26,3 +26,6 @@ int main()
         std::cout << e.what() << '\n';
     }
 }
+//terminate called after throwing an instance of 'std::runtime_error'
+//  what():  invalid
+// Aborted
