@@ -1,26 +1,41 @@
-#include <iostream> // cout
-                    //#include <cstdlib> // rand (nevermind działa i bez tego)
+#include <iostream> // std::cout
 
 namespace OOP
-{ // tworzymy namespace bo potem wyciągamy z niego ten szablon
-    template <typename T>
+{
+    template <class T>
     class Array
     {
-        unsigned _size = 0, _max_size;
-        T *_t;
+    private:
+        T *_ptr;
+        int _max_size;
+        int _size = 0;
 
-    public: // ups zapomniałem tego :(
-        Array(int max_size) : _max_size(max_size), _t(new T[max_size]) {}
-        ~Array() { delete[] _t; } // nie wiem czy wymagał
+    public:
+        Array(T max_size) : _max_size(max_size), _ptr(new T[max_size]) {}
+        ~Array() { delete[] _ptr; }
+
+        using value_type = T;
+
         Array &insert(const T &added)
         {
-            _t[_size++] = added;
+            _ptr[_size++] = added;
             return *this;
-        }                                                          // Musi być const, nie musi być referencja. dlaczego? tylko bóg wie
-        Array &operator%(const T &added) { return insert(added); } // jak wyżej
-        int operator~() { return _size; }
-        T &operator[](int index) { return _t[index]; }
-        using value_type = T; // żeby działało type::value_type. można też zrobić funkcję statyczną
+        }
+
+        Array &operator%(const T &added)
+        {
+            return insert(added);
+        }
+
+        T& operator[](int size)
+        {
+            return _ptr[size];
+        }
+
+        int &operator~()
+        {
+            return _size;
+        }
     };
 }
 

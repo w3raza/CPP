@@ -30,13 +30,7 @@ int main(){
       ptr p{new Int_t{2}};
 }
 /*
-NONE
-
-Jeśli naprawimy main:
-{ ptr p(new Int_t(1)); }
-ptr p(new Int_t(2));
-
-K_1;D_1;K_2;D_2; 
+K_1;D_1;K_2;D_2;
 */
 
 /* ---------------------------- Zadanie 2. ----------------------------
@@ -83,9 +77,9 @@ int main() {
     }
 }
 /*
-NONE
-
-Jeśli usuniemy noexcept to działa
+terminate called after throwing an instance of 'std::runtime_error'
+what():  Invalid denominator
+Aborted
 */
 
 // ---------------------------- Zadanie 4. ----------------------------
@@ -105,9 +99,6 @@ int main(){
     std::cout << box< box<int> >() << std::endl;
 }
 /*
-NONE
-
-Jeśli usuniemy inicjalizację z T a_ = {}; na T a_;
 T(T(0););
 */
 
@@ -207,34 +198,7 @@ int main(){
     A a; a = A{};
 }
 /*
-NONE
-
-#include <iostream>
-
-struct A {
-    A() {
-        A(0);
-        std::cout << "A();";
-    }
-
-    A(const A& a) {
-        A(a._a);
-        std::cout << "A(const A&);";
-    }
-
-    A(int a) : _a(a) {
-        std::cout << "A(int a);";
-    }
-
-private:
-    int _a = 0;
-};
-
-int main() {
-    A a;
-    a = A();
-}
-
+A(int a);A();A(int a);A();
 */
 
 // ---------------------------- Zadanie 10. ---------------------------- 
