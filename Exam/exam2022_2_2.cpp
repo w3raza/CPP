@@ -72,6 +72,14 @@ a_copy=2
 b=3
 */
 
+// /*
+// Proszę uzupełnić program, stosując standard nie niszy ni C++14, tylko w podanych miejsach 
+// i zgodnie z podanymi warunkami, tak aby wynik jego działania był zgodny z podanym w 
+// komentarzu na koncu kodu. Proszę podać najprostszą moliwą poprawnie działającą 
+// implementację. Kod proszę opatrzyć komentarzami, dokładnie uzasadniającymi uzycie 
+// konstrukcje. Brak poprawnego uzasadnenia lub niespełnienie warunkow jest roznoznaczne z 
+// brakiem odpowiedzi.
+// */
 // #include <iostream>
 
 // template<typename T>
@@ -95,8 +103,6 @@ b=3
 
 // int main()
 // {
-//     //using int_b = B<int>;      
-//     //using int_p_b = B<int*>;  
 //     typedef B<int> int_b
 //     typedef B<int> int_p_b    
 
