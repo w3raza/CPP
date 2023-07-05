@@ -8,9 +8,9 @@
 #include <iostream>
 #include "FunLambda.h"
 
-// #define ZADANIE1
-// #define ZADANIE2
-// #define ZADANIE3
+#define ZADANIE1
+#define ZADANIE2
+#define ZADANIE3
 
 // Example usage
 double myFunction(double x) {
@@ -38,7 +38,7 @@ int main() {
   
 // ZMODYFIKUJ DEFINICJĘ tak aby lambda była odpowiednikiem flmbd::approximateDerivative
 // - zwróć uwagę na typ przechwytywania zmiannych lokalnych (nie wykonuj kopii)
-  auto approximateDerivativeLambda = []() -> double { return 0; };                                                                   
+  auto approximateDerivativeLambda = [&x, &h]() -> double { return (myFunction(x+h)-myFunction(x-h))/(2*h); };                                                                   
   std::cout << "LAMBDA:   Approximate derivative ( x = " << x << ") = " << approximateDerivativeLambda() << std::endl;
 #endif
 
