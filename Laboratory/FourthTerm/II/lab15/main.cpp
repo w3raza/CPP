@@ -1,6 +1,4 @@
 /*
-  Zadanie jest rozszerzeniem poprzedniego o różne jednostki i typy.
-
   Celem zadanie jest stworzenie szablonu klasy symbolizującej wielkość fizyczną w jednostkach SI (czyli kombinacje różnych potęg kg, m oraz s). 
   Wielkości te można dodawać tylko jeśli ich jednostki są zgodne, czyli np. można dodać dwie liczby w m^2, ale nie można dodać np. m/s do m^2.
   Można mnożyć je bez ograniczeń, czyli np. wielkość w m pomnożyć przez wielkość w s.
