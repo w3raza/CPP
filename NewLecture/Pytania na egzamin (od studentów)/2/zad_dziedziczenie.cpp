@@ -1,37 +1,34 @@
-#include <iostream>
+#include<iostream>
 
-class S {
-public:
-  S() { std::cout << "S "; }
-  virtual ~S() { std::cout << "~S "; }
+struct S{
+  S(){ std::cout << "S ";}
+  ~S() {std::cout << "~S ";}
 };
 
-class A : public S {
-public:
-  A() { std::cout << "A "; }
-  virtual ~A() { std::cout << "~A "; }
+struct A : public S{
+  A(){ std::cout << "A ";}
+  ~A() {std::cout << "~A ";}
 };
 
-class B : public A {
-public:
-  B() : A() { std::cout << "B "; }
-  virtual ~B() { std::cout << "~B "; }
+struct B : public A{
+  B() { std::cout << "B ";}
+  ~B() {std::cout << "~B ";}
 };
 
-class C : virtual public A {
-public:
-  C() : A() { std::cout << "C "; }
-  virtual ~C() { std::cout << "~C "; }
+struct C : virtual public A{
+  C(){ std::cout << "C ";}
+  ~C() {std::cout << "~C ";}
 };
 
-class D : public C, virtual public B {
-public:
-  D(): B(), C() { std::cout << "D\n"; }
-  virtual ~D() { std::cout << "~D "; }
-protected:
+struct D : C, virtual public B{
+  D(){ std::cout << "D " << std::endl;}
+  ~D() {std::cout << "~D ";}
   C c;
 };
 
 int main(){
 D d;
 }
+/*
+S A S A B C S A C D
+~D ~C ~A ~S ~C ~B ~A ~S ~A ~S */

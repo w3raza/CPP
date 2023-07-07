@@ -1,5 +1,4 @@
 #include <iostream>
-#include <utility>
 
 struct A{
   A(){std::cout<<__PRETTY_FUNCTION__<<std::endl;} //A::A()
@@ -30,3 +29,30 @@ int main(){
   A* c = new C(std::move(c1));
   return 0;
 }
+/*
+A::A()
+B::B()
+C::C()
+A::A()
+B::B(int)
+C::C(int)
+C& C::operator=(C&&)
+C& C::operator=(const C&)
+A::A()
+B::B(int)
+C::C(int)
+C::C(const C&)
+C::~C()
+B::~B()
+A::~A()
+A::A()
+B::B(int)
+C::C(int)
+C::C(C&&)
+C::~C()
+B::~B()
+A::~A()
+C::~C()
+B::~B()
+A::~A()
+*/

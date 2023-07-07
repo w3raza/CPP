@@ -30,3 +30,7 @@ int main(){
     C obj{};
     std::cout<<std::endl;
 }
+/*
+Result:
+ADBADBC
+*/

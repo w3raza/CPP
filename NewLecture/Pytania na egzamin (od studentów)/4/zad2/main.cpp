@@ -1,11 +1,8 @@
 #include<iostream>
 
-class Base {
-    public:
-    typedef double func;
+struct Base {
+  typedef double func;
 };
-
-//
 
 //Jakie dwa szablony funkcji trzeba napisać żeby kod zgodnie z zasadą SFINAE kompilował się poprawnie?
 //Szablony powinny wypisywać napis "szablon " i numer szablonu
@@ -23,16 +20,15 @@ void f(T obj) {
   std::cout<<"szablon 2"<<std::endl;
 }
 
-
-
-
-
 int main() {
-  f<Base>(10.0);  // szablon 1 ma zostać użyty
-  f<double>(10.0);   // tutaj ma zostać użyty szablon 2
+  f<Base>(10.0);  
+  f<double>(10.0); 
   return 0;
 }
-
+/*
+szablon 1
+szablon 2
+*/
 
 
 
