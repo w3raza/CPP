@@ -1,5 +1,7 @@
-/* Celem zadania jest przećwiczenie szablonów klas z paraMeterami szablonu innymi niż typ (operatory arytmetyczne) oraz częściowej specjalizacji.
-Należy zaimplementowac taki kod, ktory pozwoli realizować dzialania zgodnie z zasadami obowiazującymi w fizyce, to znaczy mnożyć i dzielić przez siebie można dowolne liczby, ale dodawać i odejmować jedynie liczby o tej samej jednostce.
+/* Celem zadania jest przećwiczenie szablonów klas z paraMeterami 
+szablonu innymi niż typ (operatory arytmetyczne) oraz częściowej specjalizacji.
+Należy zaimplementowac taki kod, ktory pozwoli realizować dzialania zgodnie z zasadami obowiazującymi w fizyce, 
+to znaczy mnożyć i dzielić przez siebie można dowolne liczby, ale dodawać i odejmować jedynie liczby o tej samej jednostce.
 
 UWAGA!!!
 Rozwiązanie powinno działać dla dowolnych potęg Metera, również tych, które nie są wypisane w tym programie.
