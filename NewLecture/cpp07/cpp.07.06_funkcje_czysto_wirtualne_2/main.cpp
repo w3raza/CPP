@@ -23,4 +23,10 @@ int main(int argc, char* argv[])
 	cout << "Pole Shape* (aLine) = " << Shape->Pole() << endl;
 	Shape->Rys();
 }
-
+/*
+Pole Shape* (aRec) = 4
+Rysuj Rec
+-------------------------------------
+Pole Shape* (aLine) = 0
+Rysuj Line
+*/

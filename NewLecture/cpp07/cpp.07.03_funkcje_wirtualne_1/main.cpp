@@ -39,3 +39,13 @@ int main(int argc, char * argv[])
 	cout << "Pole Shape (aCirc) = " << Shape->Pole() << endl;
 	Shape->Rys();
 }
+/*
+Pole aShape = 0
+Nie wiem jak!
+-------------------------------------
+Pole Shape (aRec) = 1
+Rysuj Rec
+-------------------------------------
+Pole Shape (aCirc) = 3.14159
+Rysuj Circ
+*/

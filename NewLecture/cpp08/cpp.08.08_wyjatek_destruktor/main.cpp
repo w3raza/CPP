@@ -44,3 +44,4 @@ int main(int argc, char* argv[])
 	}
 	cout << "\nZa 1. blokiem catch" << endl;
 }
+//program odmówi współpracy i zakończy brutalnie działanie throw w destruktorze 

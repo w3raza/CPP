@@ -38,4 +38,14 @@ int main(int argc, char * argv[]) {
 	cout << "Pole Shape (aCirc) = " << Shape->Pole() << endl;
 	Shape->Rys();
 }
+/*
+Pole aShape = 0
+Nie wiem jak!
+-------------------------------------
+Pole Shape (aRec) = 0
+Nie wiem jak!
+-------------------------------------
+Pole Shape (aCirc) = 0
+Nie wiem jak!
+*/
 

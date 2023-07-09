@@ -67,3 +67,15 @@ int main(int argc, char *argv[])
   }
   ptr->print();
 }
+/*
+Konstruktor Test1(aTest1)
+Konstruktor Test1(cTest1)
+Konstruktor Test1(ptrTest1)
+
+Rzucam
+Destruktor Test1(cTest1)
+
+Po zlapaniu wyjatku
+ptrTest1
+Destruktor Test1(aTest1)
+*/

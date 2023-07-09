@@ -61,3 +61,20 @@ int main() {
   D d1, d2;
   d2 = std::move(d1);
 }
+/*
+Trying to move-assign A from rvalue temporary
+move assigned
+Trying to move-assign A from xvalue
+move assigned
+
+Trying to move-assign B
+Before move, b1.s = "test"
+move assigned
+After move, b1.s = ""
+
+Trying to move-assign C
+copy assigned
+
+Trying to move-assign D
+move assigned
+*/

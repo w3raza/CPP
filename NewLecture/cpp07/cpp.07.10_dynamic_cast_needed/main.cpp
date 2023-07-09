@@ -23,4 +23,9 @@ int main(int argc, char* argv[])
 	
 	g.Rys();
 }
-
+/*
+Rysuj Rec
+Rysuj Rec
+Rysuj Circ
+Rysuj Circ
+*/
