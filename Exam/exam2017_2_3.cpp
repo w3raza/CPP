@@ -41,3 +41,17 @@ konstruktor A nie jest wywoływany ponownie. Dlatego następny jest konstruktor 
 
 7. Na koniec, kiedy wszystkie klasy bazowe dla Z są już zainicjowane, wywoływany jest konstruktor Z, który wypisuje "Z, ".
 */
+
+//Example:
+
+#include<iostream>
+
+struct S{ S() {std::cout << "S, ";} };
+struct A{ A() {std::cout << "A, ";} };
+struct B{ B() {std::cout << "B, ";} };
+struct X :  virtual public A, virtual private B { X() {std::cout << "X, ";} };
+struct Y : virtual S, virtual public A,  private B{ Y() {std::cout << "Y, ";} };
+struct Z :  public X, virtual public Y,  B { Z() {std::cout << "Z, ";} };
+
+int main() { Z test; }
+// A, B, S, B, Y, X, B, Z, 

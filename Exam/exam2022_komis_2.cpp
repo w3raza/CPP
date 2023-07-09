@@ -4,8 +4,12 @@ class Int_t{
 private:
     int _val;
 public:
-    Int_t() = default;
-    Int_t(int el): _val(el){}
+    Int_t() = default; // tworzysz obiekt ar_t t;, używasz domyślnego konstruktora array, który z kolei tworzy siedem obiektów Int_t za pomocą ich domyślnego konstruktora.
+    Int_t(int el): _val(el){} //bo i = value;
+    // Int_t& operator=(int el){ moze rowniez byc
+    //     _val = el;
+    //     return *this;
+    // }
     
     friend std::ostream& operator<<(std::ostream& os, const Int_t& obj){
         return os << obj._val;
@@ -14,8 +18,9 @@ public:
 
 template <typename T, size_t N>
 struct array{
-    array() {}
-    explicit array(const array& a) {}
+    array() = default; //bo ar_t t; deklarujesz jakikolwiek konstruktor, nawet jeśli jest usunięty, kompilator nie dostarczy domyślnego konstruktora
+    array(const array& a) = delete; // bo ar_t t2 = t; ma powodowac blad kompilacji
+    array& operator=(const array& other) = delete; /// bo t = t; ma powodowac blad kompilacji
 
     T _arr[N];
 };
@@ -41,8 +46,8 @@ int main(){
     // (ma działać z innymi typami), rozmiar dowolny
     typedef array<Int_t, 7> ar_t;
     ar_t t;
-    //ar_t t2 = t; //odkomentowanie powoduje błąd kompilacji
-     //t = t; //odkomentowanie powoduje błąd kompilacji
+    // ar_t t2 = t; //odkomentowanie powoduje błąd kompilacji
+    //  t = t; //odkomentowanie powoduje błąd kompilacji
     set_for_each(t, 7);
     printer(t);
 }

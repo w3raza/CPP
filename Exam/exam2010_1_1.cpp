@@ -23,16 +23,16 @@ int main() {
     return 0;
 }
 
-// // uzupełnij
+// // uzupełnij 1
 
 // struct A {
-//  // uzupełnij
+//  // uzupełnij 2
 // };
 
 // int main() {
 //     list<int> coll(11);
-//     for_each( /*uzupełnij*/ );
-//     copy( /*uzupełnij*/ );
+//     for_each( /*uzupełnij 3*/ );
+//     copy( /*uzupełnij 4*/ );
 //     return 0;
 // }
 // //to ma się wyświetlić:

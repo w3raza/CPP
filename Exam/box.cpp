@@ -1,44 +1,46 @@
-
-
 #include <iostream>
 
-using namespace std;
-
 template<typename T = int>
-struct box{
-    T _val;
-    
-    box& operator=(int el){
-        _val = el;
-        
-        return *this;
-    }
-    
-    operator double() const{
-        return static_cast<double>(_val);
-    }
+class box {
+    public:
+        T value;
+
+        T& operator=(const T& val){
+            value = val;
+            return value;
+        }
+
+        friend std::ostream& operator<<(std::ostream& os, const box<T>& o){
+            return os << o.value;
+        }
 };
 
-template<typename T, int I = 2>
-struct CArray{
+template<typename T, size_t N = 2>
+class CArray {
+private:
     T* _arr;
-    size_t _size;
-    
-    CArray(): _size(I), _arr(new T[I]){}
-    CArray(const CArray& other): _size(other._size), _arr(other._arr){}
-    
-    T operator[](size_t i) const{
-        return _arr[i];
+    unsigned _size;
+public:
+    CArray(): _size(N), _arr(new T[N]){}
+        // Copy constructor
+    CArray(const CArray& a): _size(a._size), _arr(new T[_size]){
+        for(unsigned i=0;i<a._size;i++){
+            _arr[i]=a._arr[i];
+        }
     }
-    
-    T& operator[](size_t i){
-        return _arr[i];
+    ~CArray(){
+        delete[] _arr;
+    }
+
+    T& operator[](size_t index) const{
+        return _arr[index];
     }
 };
 
 int main()
 {
-	CArray< box< >, 2 > a;
+    using namespace std;
+    CArray< box< >, 2 > a;
 	double d = a[0] = a[1] = 1;
 
 	const CArray< box< int > > b = a;
@@ -49,3 +51,8 @@ int main()
 	
 	return 0;
 }
+
+/*
+d = 1	a[0] = 1	a[1] = 1
+b[0] = 2	b[1] = 2
+*/

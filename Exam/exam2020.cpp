@@ -169,7 +169,6 @@ e. Linkowanie nie zawsze jest konieczne, aby zbudować program (np. kiedy mamy t
 f. Kompilacja jest pierwszym etapem przetwarzania kodu źródłowego na program 
 
 Prawdziwe stwierdzenia to:
-b. W języku C++ np. typ zdefiniowany jako struct A{}; ma rozmiar 0
 c. Klasa (class) i struktura (struct) w języku C++ są na tyle różne, że nie da się ich zawsze wzajemnie zastępować
 e. Linkowanie nie zawsze jest konieczne, aby zbudować program (np. kiedy mamy tylko plik main.cpp)
 f. Kompilacja jest pierwszym etapem przetwarzania kodu źródłowego na program

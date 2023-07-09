@@ -5,9 +5,10 @@ using namespace std;
 struct A
 {
     A(int a, int b) : _a(a), _b(b) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";}
-    explicit A(int a) : A(a,0) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";}
+    explicit A(int a) : A(a,0) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";} //explicit bo A f = 1;
     A() : A(0,0) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";}
-    A(A&& obj) : _a(obj._a),_b(obj._b) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";}
+    //'constexpr A::A(const A&)' is implicitly declared as deleted because 'A' declares a move constructor or move assignment operator
+    A(A&& obj) : _a(obj._a),_b(obj._b) {cout << __PRETTY_FUNCTION__ << " _a=" << _a << " _b=" << _b << "\n";} //bo A d = std::move(c);
 private:
     int _a=0, _b=0;
 };

@@ -18,12 +18,13 @@ namespace oop
         {
             insert(znak);
         }
-        T operator~()
+
+        size_t operator~()const
         {
             return _size;
         }
 
-        T &operator[](const T &index)
+        T &operator[](const T &index)const
         {
             return _t[index];
         }

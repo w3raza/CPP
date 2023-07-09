@@ -4,11 +4,14 @@ struct B
 {
     friend std::ostream &operator<<(std::ostream &o, const B &b);
 
-    virtual std::ostream &printOn(std::ostream &o) const
-    {
-        return o << __PRETTY_FUNCTION__ << "\n";
-    }
+    //bo // B b ERROR
+    virtual std::ostream &printOn(std::ostream &o) const = 0;
 };
+
+std::ostream & B::printOn(std::ostream &o) const 
+{
+        return o << __PRETTY_FUNCTION__ << "\n";
+}
 
 std::ostream &operator<<(std::ostream &o, const B &b)
 {
@@ -29,6 +32,7 @@ protected:
 */
 struct D2 : public D1
 {
+    //nic bo ma się wywołać printOn z D1, a nie moze byc klasa abstrakcyjna bo jest jej deklaracja w main
 };
 
 class D3 : public D1
@@ -69,7 +73,7 @@ int main()
 }
 
 
-// // Uzupełnij. Nie wolno uzywać słowa kluczowego public (Tu jest błąd)
+// // Uzupełnij. Nie wolno uzywać słowa kluczowego public (Tu jest błąd, mozna, inaczej się nie da)
 // #include <iostream>
 
 // struct B
